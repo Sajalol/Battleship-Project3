@@ -37,3 +37,32 @@ class Board:
             if self.type == "player":
                 self.board[x] [y] = "@"
 
+
+def random_point(size):
+    """
+    helper function to return to a random integer between 0 and size
+    """
+    return randint(0, size - 1)
+
+
+
+def populate_board(board):
+    """
+    for future refrense
+    """
+
+
+
+
+def make_guess(board):
+    """
+    for future refrense
+    """
+
+
+def play_game(computer_board, player_board):
+    """
+    for future refrense
+    """
+
+
