@@ -20,7 +20,11 @@ class Board:
 
     def print(self):
         for row in self.board:
-            print(" ".join(row))
+            print((" ".join(row))
+
+    def guess(self, x, y):
+        self.guesses.append((x, y))
+        self.board [x] [y] = "X"
 
         if (x, y) in self.ships:
             self.board[x] [y] = "*"
@@ -66,3 +70,30 @@ def play_game(computer_board, player_board):
     """
 
 
+def new_game():
+    """
+    Starts a new game. sets the board size and number of ships, resets the scores and initialises the boards.
+    """
+
+    size = 5
+    num_ships = 4
+    scores["computer"] = 0
+    scores["player"] = 0
+    print("-" * 35)
+    print("Welcome to battleships!")
+    print(f"Board Size: {size}. Number of ships: {num_ships}")
+    print("Top left corner is row:0, col: 0")
+    print("-" * 35)
+    player_name = input("Please enter your name: \n")
+    print("-" * 35)
+
+    computer_board = Board(size, num_ships, "Computer", type="computer")
+    player_board = Board(size, num_ships, player_name, type="player")
+
+    for _ in range(num_ships):
+        populate_board(player_board)
+        populate_board(computer_board)
+    
+    play_game(computer_board, player_board)
+
+new_game()
